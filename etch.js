@@ -13,9 +13,9 @@ colorPicker.addEventListener("change", watchColorPicker, false);
 
 let gridSize = 16;
 
-let userColor = "";
+let userColor = "#fff";
 let brush = "grey";
-
+let rainbowActive = false;
 
 function initGrid() {
     let initial = 16;
@@ -57,37 +57,50 @@ function eraseGrid() {
 }
 
 function setBrush() {
-    const pixels = document.querySelectorAll("#pixel");
-    pixels.forEach(function(pixel) {
-    pixel.addEventListener("mouseover", () => {
-        pixel.style.backgroundColor = brush;
+    if (rainbowActive) {
+        const pixels = document.querySelectorAll("#pixel");
+        pixels.forEach(function (pixel) {
+            pixel.addEventListener("mouseover", () => {
+                pixel.style.backgroundColor = randomColor();
+            });
+        });
+    }else {
+        const pixels = document.querySelectorAll("#pixel");
+        pixels.forEach(function (pixel) {
+            pixel.addEventListener("mouseover", () => {
+                pixel.style.backgroundColor = brush;
+            });
+        });
+    }};
+
+    function watchColorPicker(event) {
+        userColor = event.target.value;
+        brush = userColor;
+    };
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var rainbow = document.querySelector('#rainbow');
+        rainbow.addEventListener('click', function () {
+            if (rainbowActive) {
+                brush = userColor;
+                rainbowActive = false;
+                this.classList.toggle('active');
+            } else {
+                this.classList.toggle('active');
+                rainbowActive = true;
+
+                brush = "red";
+            }
+        });
     });
-});
-};
 
-function watchColorPicker(event) {
-    userColor = event.target.value;
-    brush = userColor;
-};
+    function randomColor() {
+        var red = (Math.floor(Math.random() * 256));
+        var green = (Math.floor(Math.random() * 256));
+        var blue = (Math.floor(Math.random() * 256));
+        return 'rgb(' + red + ',' + green + ',' + blue + ')';
+    };
 
-let rainbowActive = false;
-
-document.addEventListener('DOMContentLoaded', function() {
-    var rainbow = document.querySelector('#rainbow');
-    rainbow.addEventListener('click', function() {
-        if (rainbowActive){
-            brush = userColor;
-            rainbowActive = false;
-            this.classList.toggle('active');
-          }else{
-            this.classList.toggle('active');
-            rainbowActive = true;
-            brush = "red";
-          }
-        
-      
-    });
-  });
-
-initGrid();
-setInterval(setBrush, 50);
+    initGrid();
+    setInterval(setBrush, 50);
