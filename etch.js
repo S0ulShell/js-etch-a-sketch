@@ -16,6 +16,7 @@ function initGrid() {
     for (let i = 0; i < gridSize; i++) {
         createColumn(16);
     }
+    setBrush();
 }
 
 function createColumn(int) {
@@ -24,9 +25,6 @@ function createColumn(int) {
     for (let i = 0; i < int; ++i) {
         const div = document.createElement("div");
         div.setAttribute("id", "pixel");
-        div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = brush;
-        });
         column.appendChild(div);
     };
     container.appendChild(column);
@@ -53,7 +51,15 @@ function eraseGrid() {
     }
 }
 
+function setBrush() {
+    const pixels = document.querySelectorAll("#pixel");
+    pixels.forEach(function(pixel) {
+    pixel.addEventListener("mouseover", () => {
+        pixel.style.backgroundColor = brush;
+    });
+});
+};
+
 
 initGrid();
-
 
