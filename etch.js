@@ -6,6 +6,11 @@ setSize.addEventListener("click", createGrid);
 const erase = document.querySelector("#erase");
 erase.addEventListener("click", eraseGrid)
 
+const colorPicker = document.querySelector("#colorPicker");
+colorPicker.addEventListener("change", watchColorPicker, false);
+
+
+
 let gridSize = 16;
 
 let brush = "grey";
@@ -42,6 +47,7 @@ function createGrid() {
     } else {
         alert("Maximum grid size is 100!");
     }
+    setBrush();
 }
 
 function eraseGrid() {
@@ -49,6 +55,7 @@ function eraseGrid() {
     for (let i = 0; i < gridSize; ++i) {
         createColumn(gridSize);
     }
+    setBrush();
 }
 
 function setBrush() {
@@ -58,6 +65,11 @@ function setBrush() {
         pixel.style.backgroundColor = brush;
     });
 });
+};
+
+function watchColorPicker(event) {
+    brush = event.target.value;
+    setBrush();
 };
 
 
