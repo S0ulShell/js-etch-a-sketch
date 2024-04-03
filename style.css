@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
+body{ 
+    background-color: rgba(255, 74, 110, 0.473);
+}
+.holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.toolbar{
+    background-color: rgba(108, 58, 202, 0.623);
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.header{
+    margin: 20px; 
+    text-align: center;
+}
 .column{
     display: flex;
     flex-direction: column;
@@ -14,7 +35,6 @@
 }    
 
 #pixel{
-    border: solid 0.5px;
     flex: 1 1 auto;
     background-color: white;
 }
@@ -26,16 +46,17 @@
     font-weight: bold;
     color: black;
     -webkit-text-stroke: linear-gradient;
-
 }
 
 #container{
+    align-self: center;
     padding: 0;
     display: flex;
     justify-content: flex-start;
-    border: 5px solid #ff0000;
+    border: 20px solid #ff2121a9;
     width: 510px;
     height: 510px;
 };
+
 
 

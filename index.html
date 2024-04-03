@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css"></link>
-        <title>ETCH A SKETCH</title>
-    </head>
-    <body>
-       
-        <container id="container">
-        </container>
 
-        <button id="prompter">Set Grid Size</button>
-        <button id="erase">Erase</button>
-        <input type="color" id="colorPicker" name="colorPicker" value="#fff"><br><br>
-        <button id= "rainbow">Rainbow Brush</button> 
-        <script src="etch.js" defer></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    </link>
+    <title>ETCH A SKETCH</title>
+</head>
+
+<body>
+    <div class="header">ETCH A SKETCH</div>
+    <container class = "holder">
+        <div class="toolbar">
+            <button id="prompter">Set Grid Size</button>
+            <input type="color" id="colorPicker" name="colorPicker" value="#ffffff"><br><br>
+            <button id="rainbow">Rainbow Brush</button>
+            <button id="erase">Erase</button>
+        </div>
+        <container id="container"></container>
+        
+    </container>
+
+
+    <script src="etch.js" defer></script>
+</body>
+
 </html>
