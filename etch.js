@@ -13,6 +13,7 @@ colorPicker.addEventListener("change", watchColorPicker, false);
 
 let gridSize = 16;
 
+let userColor = "";
 let brush = "grey";
 
 
@@ -21,7 +22,6 @@ function initGrid() {
     for (let i = 0; i < gridSize; i++) {
         createColumn(16);
     }
-    setBrush();
 }
 
 function createColumn(int) {
@@ -47,7 +47,6 @@ function createGrid() {
     } else {
         alert("Maximum grid size is 100!");
     }
-    setBrush();
 }
 
 function eraseGrid() {
@@ -55,7 +54,6 @@ function eraseGrid() {
     for (let i = 0; i < gridSize; ++i) {
         createColumn(gridSize);
     }
-    setBrush();
 }
 
 function setBrush() {
@@ -68,10 +66,28 @@ function setBrush() {
 };
 
 function watchColorPicker(event) {
-    brush = event.target.value;
-    setBrush();
+    userColor = event.target.value;
+    brush = userColor;
 };
 
+let rainbowActive = false;
+
+document.addEventListener('DOMContentLoaded', function() {
+    var rainbow = document.querySelector('#rainbow');
+    rainbow.addEventListener('click', function() {
+        if (rainbowActive){
+            brush = userColor;
+            rainbowActive = false;
+            this.classList.toggle('active');
+          }else{
+            this.classList.toggle('active');
+            rainbowActive = true;
+            brush = "red";
+          }
+        
+      
+    });
+  });
 
 initGrid();
-
+setInterval(setBrush, 50);

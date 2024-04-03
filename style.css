@@ -18,6 +18,16 @@
     flex: 1 1 auto;
     background-color: white;
 }
+#rainbow{
+    transition: background-color 1s ease-in-out;
+}
+
+#rainbow.active{
+    font-weight: bold;
+    color: black;
+    -webkit-text-stroke: linear-gradient;
+
+}
 
 #container{
     padding: 0;
