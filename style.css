@@ -4,26 +4,29 @@
     box-sizing: border-box;
 }
 
+.column{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}    
+
+.pixel{
+    border: solid 0.5px;
+    flex: 1 1 auto;
+}
+
+
+
 #container{
     padding: 0;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-}
+    justify-content: flex-start;
+    border: 5px solid #ff0000;
+    width: 510px;
+    height: 510px;
+};
 
-.column{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
-.pixel{
-    border: solid 1px;
-    max-width: 30px;
-    max-height: 30px;
-    min-height: 5px;
-    min-width: 5px;
-    aspect-ratio: 1 / 1;
-}

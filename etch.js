@@ -11,10 +11,10 @@ function initGrid() {
     }
 }
 
-function createColumn(int){
+function createColumn(int) {
     const column = document.createElement("div");
     column.classList.add("column");
-    for (let i = 0; i < int; ++i){
+    for (let i = 0; i < int; ++i) {
         const div = document.createElement("div");
         div.classList.add("pixel");
         column.appendChild(div);
@@ -24,11 +24,16 @@ function createColumn(int){
 
 function createGrid() {
     let value = prompt("Set grid size");
-    container.querySelectorAll('*').forEach(n => n.remove());
-    value = parseInt(value);
-    for (let i = 0; i < value; ++i) {
-        createColumn(value);
+    if (value <= 100) {
+        container.querySelectorAll('*').forEach(n => n.remove());
+        value = parseInt(value);
+        for (let i = 0; i < value; ++i) {
+            createColumn(value);
+        }
+    } else {
+        alert("Maximum grid size is 100!")
     }
+
 }
 
 initGrid();
