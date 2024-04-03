@@ -3,7 +3,12 @@ const container = document.querySelector("#container");
 const setSize = document.querySelector("#prompter");
 setSize.addEventListener("click", createGrid);
 
+const erase = document.querySelector("#erase");
+erase.addEventListener("click", eraseGrid)
+
 let gridSize = 16;
+
+let brush = "grey";
 
 
 function initGrid() {
@@ -20,7 +25,7 @@ function createColumn(int) {
         const div = document.createElement("div");
         div.setAttribute("id", "pixel");
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = "grey";
+            div.style.backgroundColor = brush;
         });
         column.appendChild(div);
     };
@@ -37,7 +42,14 @@ function createGrid() {
             createColumn(value);
         }
     } else {
-        alert("Maximum grid size is 100!")
+        alert("Maximum grid size is 100!");
+    }
+}
+
+function eraseGrid() {
+    container.querySelectorAll('*').forEach(n => n.remove());
+    for (let i = 0; i < gridSize; ++i) {
+        createColumn(gridSize);
     }
 }
 
