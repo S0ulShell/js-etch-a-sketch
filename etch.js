@@ -5,6 +5,7 @@ setSize.addEventListener("click", createGrid);
 
 let gridSize = 16;
 
+
 function initGrid() {
     let initial = 16;
     for (let i = 0; i < gridSize; i++) {
@@ -19,7 +20,7 @@ function createColumn(int) {
         const div = document.createElement("div");
         div.setAttribute("id", "pixel");
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = "red";
+            div.style.backgroundColor = "grey";
         });
         column.appendChild(div);
     };
@@ -40,10 +41,6 @@ function createGrid() {
     }
 }
 
-function paint(){
-    console.log("works");
-    pixel.style.backgroundColor = "red";
-}
 
 initGrid();
 
